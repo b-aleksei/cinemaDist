@@ -67,6 +67,12 @@ export class Validate {
 				inputs.forEach((input) => {
 					input.parentElement.classList.add('validate');
 					this.checkValue(input);
+					if (!this.form.checkValidity()) { // если форма не валидна
+						this.form.addEventListener('animationend', () => {
+							this.form.classList.remove('form-invalid');
+						}, {once: true});
+						this.form.classList.add('form-invalid');
+					}
 				});
 			}
 			break;
