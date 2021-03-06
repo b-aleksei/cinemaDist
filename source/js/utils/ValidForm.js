@@ -70,9 +70,7 @@ export class Validate {
 					this.checkValue(input);
 				});
 				if (!this.form.checkValidity()) { // если форма не валидна
-					this.form.addEventListener('animationend', () => {
-						this.form.classList.remove(this.config.classError);
-					}, {once: true});
+					this.form.addEventListener('animationend', this);
 					this.form.classList.add(this.config.classError);
 				}
 			}
@@ -80,6 +78,10 @@ export class Validate {
 		case 'submit':
 			e.preventDefault();
 			this.sendData(this.form);
+			break;
+		case 'animationend':
+			this.form.classList.remove(this.config.classError);
+			this.form.removeEventListener('animationend', this);
 		}
 	}
 
