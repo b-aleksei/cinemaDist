@@ -185,25 +185,13 @@ export const objModal = new MultiModal({
 	beforeOpen(obj) {
 		if (obj.currentWindow.modal.id === 'modal-login' && !modalLoginInit) {
 		  const form = obj.currentWindow.modal.querySelector('form');
-			new Validate(form, {
-				transferInfo: {
-					success: 'Успешный вход',
-					bad: 'Удаленный сервер не найден',
-					error: 'Сервер недоступен',
-				},
-			});
+			new Validate(form);
 			modalLoginInit = true;
 		}
 
 		if (obj.currentWindow.modal.id === 'modal-register' && !modalRegisterInit) {
 			const form = obj.currentWindow.modal.querySelector('form');
-			new Validate(form, {
-				transferInfo: {
-					success: 'Успешная регистрация',
-					bad: 'Удаленный сервер не найден',
-					error: 'Сервер недоступен',
-				},
-			});
+			new Validate(form);
 			modalRegisterInit = true;
 		}
 	},

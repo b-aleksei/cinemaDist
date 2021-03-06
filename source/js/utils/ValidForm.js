@@ -28,7 +28,8 @@ export class Validate {
 	  this.form = form;
 	  this.defaultConfig = {
 	    url: 'https://echo.htmlacademy.ru',
-	    transferInfo: {
+			classError: 'form-invalid',
+	    statusMessages: {
 	      success: 'Данные успешно обновлены',
 	      bad: 'Удаленный сервер не найден',
 	      error: 'Сервер недоступен',
@@ -67,13 +68,13 @@ export class Validate {
 				inputs.forEach((input) => {
 					input.parentElement.classList.add('validate');
 					this.checkValue(input);
-					if (!this.form.checkValidity()) { // если форма не валидна
-						this.form.addEventListener('animationend', () => {
-							this.form.classList.remove('form-invalid');
-						}, {once: true});
-						this.form.classList.add('form-invalid');
-					}
 				});
+				if (!this.form.checkValidity()) { // если форма не валидна
+					this.form.addEventListener('animationend', () => {
+						this.form.classList.remove(this.config.classError);
+					}, {once: true});
+					this.form.classList.add(this.config.classError);
+				}
 			}
 			break;
 		case 'submit':
@@ -139,7 +140,7 @@ export class Validate {
 			const modalInfo = document.querySelector('#modal-success');
 			if (modalInfo) {
 				const title = modalInfo.querySelector('h2');
-				title.innerText = this.config.transferInfo[status];
+				title.innerText = this.config.statusMessages[status];
 				objModal.open(modalInfo, true);
 			}
 		}
