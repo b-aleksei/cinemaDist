@@ -1,0 +1,74 @@
+.blob-container {
+  img {
+    position: absolute;
+    z-index: -4;
+  }
+}
+
+.blob-parallax {
+  position: absolute;
+  z-index: -4;
+  //transition: transform 0.1s;
+}
+
+#square-1 {
+  width: 715px;
+  top: 12%;
+  right: calc(50% - 960px - 376px);
+
+  @media (max-width: 1920px) {
+    width: 37%;
+    right: -19.6%;
+  }
+}
+
+#square-2 {
+  width: 852px;
+  top: 28%;
+  left: calc(50% - 960px - 474px);
+
+  @media (max-width: 1920px) {
+    width: 44%;
+    left: -24.7%;
+  }
+}
+
+#square-3 {
+  width: 852px;
+  top: 48%;
+  right: calc(50% - 960px - 454px);
+
+  @media (max-width: 1920px) {
+    width: 44%;
+    right: -23.6%;
+  }
+}
+
+#square-4 {
+  width: 640px;
+  top: 72%;
+  left: calc(50% - 960px - 324px);
+
+  @media (max-width: 1920px) {
+    width: 33%;
+    left: -16.9%;
+  }
+}
+
+.body-main {
+  #square-1 {
+    top: 20%;
+  }
+
+  #square-2 {
+    top: 40%;
+  }
+
+  #square-3 {
+    top: -150%;
+  }
+
+  #square-4 {
+    top: -50%;
+  }
+}

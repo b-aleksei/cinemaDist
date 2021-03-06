@@ -1,0 +1,17 @@
+<fieldset class="rating rating--{{ mod }}">
+  <legend class="visually-hidden">Звездный рейтинг</legend>
+  {% for i in 1..5 %}
+    {% if i != 4 %}
+      <input id="{{ movie }}-{{ i }}" type="radio" name="{{ movie }}" value="{{ i }}">
+      {% else %}
+      <input id="{{ movie }}-{{ i }}" type="radio" name="{{ movie }}" value="{{ i }}" checked>
+    {% endif %}
+  {% endfor %}
+
+  {% for i in 5..1 %}
+    <label for="{{ movie }}-{{ i }}" aria-label="{{ i }} звезд{{ i == 1 ? 'a' : i < 5 ? 'ы' : '' }}">
+      {{ macro.svg('star', width, height) }}
+    </label>
+  {% endfor %}
+
+</fieldset>

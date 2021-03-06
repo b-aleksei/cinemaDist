@@ -1,0 +1,23 @@
+<div class="search-component">
+  {% if pages %}
+    <ul class="breadcrumbs">
+      {% for page in pages %}
+        <li>
+          {% if loop.last %}
+            <a class="active">{{ page.name }}</a>
+          {% else %}
+            <a href="{{ page.href }}">{{ page.name }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% block search %}
+    <div class="btn search">
+      <button type="button" aria-label="поиск фильмов">
+        {{ macro.svg('search', 20, 20) }}
+      </button>
+      <input type="search" placeholder="Поиск" aria-label="Поиск">
+    </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,59 @@
+{% set slides = [
+  {
+    name: 'extraction',
+    titleRu: 'Тайлер Рейк: Операция по спасению',
+    titleEn: 'Extraction, 2020'
+  },
+  {
+    name: 'tenet',
+    titleRu: 'Довод',
+    titleEn: 'Tenet, 2020',
+  },
+  {
+    name: 'bond',
+    titleRu: 'Не время умирать',
+    titleEn: 'Agent 007, 2020',
+  },
+  {
+    name: 'venom',
+    titleRu: 'Веном',
+    titleEn: 'Venom, 2020',
+  },
+  {
+    name: 'bw',
+    titleRu: 'Черная Вдова',
+    titleEn: 'Black widow, 2020',
+  },
+] %}
+
+<div class="banner {{ mod }}">
+  {% for slide in slides %}
+    <div class="banner__item ">
+      <div class="banner__img-wrap">
+        {% if loop.first %}
+          {{ macro.picture('', slide.name, 1920, 775, slide.titleRu, 'eager', 'slider/' ) }}
+        {% else  %}
+          {{ macro.picture('', slide.name, 1920, 775, slide.titleRu, 'lazy', 'slider/' ) }}
+        {% endif %}
+      </div>
+      <div class="banner__description">
+        <p class="banner__title">{{ slide.titleRu }}</p>
+        <p class="banner__title-en" lang="en">{{ slide.titleEn }}</p>
+
+        {% include 'rating.twig' with {
+          mod: 'banner',
+          movie: slide.name,
+          width: 33,
+          height: 32,
+        } %}
+
+        <div class="banner__watch">
+          <button class="btn-play" type="button" aria-label="воспроизведение">
+            {{ macro.svg('play', 23, 33) }}
+          </button>
+          <p>смотреть</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,133 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'Profile cinema' %}
+{% set pages = [
+  {
+    name: 'Главная',
+    href: 'index.html'
+  },
+  {
+    name: 'Личные данные',
+    href: 'auth.html'
+  },
+  {
+    name: 'Редактировать профиль',
+    href: 'profile.html'
+  }
+] %}
+
+{% block header %}
+  {% embed '../base/header.twig' %}
+    {% block login %}
+      <div class="header__profile">
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img class="object-fit" src="img/svg/ava.svg" width="149" height="149" alt="аватар">
+          </div>
+        </div>
+      </div>
+      <a href="index.html" class="btn header__login">
+        <span>выход</span>
+        {{ macro.svg('auth', 12, 12) }}
+      </a>
+    {% endblock %}
+  {% endembed %}
+{% endblock %}
+
+{% block main %}
+  <h1 class="visually-hidden">Редактировать профиль</h1>
+  <div class="wrapper">
+    {% include '../components/search-component.twig' with pages %}
+  </div>
+  <form class="profile wrapper" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on">
+    <div class="profile__field">
+      <span class="profile__field-title">Логин*</span>
+      <label class="profile__label-wrap profile__text-field" aria-label="Логин">
+        <input type="text" name="login" placeholder="Не заполнено" data-validate required>
+        <span data-error></span>
+      </label>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Пароль*</span>
+      <label class="profile__label-wrap profile__text-field" aria-label="Пароль">
+        <input type="password" name="password" placeholder="Не заполнено" data-validate required>
+        <span data-error></span>
+        <button class="show-password" type="button">
+          {{ macro.svg('password-eye', 30,30) }}
+        </button>
+      </label>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Полное имя*</span>
+      <label class="profile__label-wrap profile__text-field" aria-label="Полное имя">
+        <input type="text" name="name" placeholder="Не заполнено" data-validate required>
+        <span data-error></span>
+      </label>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Email*</span>
+      <label class="profile__label-wrap profile__text-field" aria-label="Email">
+        <input type="text" name="email" placeholder="Не заполнено" data-validate="email" required>
+        <span data-error></span>
+      </label>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Телефон</span>
+      <label class="profile__label-wrap profile__text-field" aria-label="Телефон">
+        <input type="text" name="phone" placeholder="Не заполнено" data-validate="phone">
+        <span data-error></span>
+      </label>
+    </div>
+    <div class="profile__field profile__field--avatar">
+      <span class="profile__field-title">Аватар</span>
+      <div class="profile__label-wrap profile__label-file">
+        <div class="avatar-wrap">
+          <div class="avatar avatar-profile">
+            <img class="object-fit" src="img/svg/ava.svg" width="149" height="149" alt="аватар">
+          </div>
+          <div class="auth__thumb">
+            {{ macro.svg('camera', 34, 30) }}
+          </div>
+        </div>
+        <label class="btn profile__load-btn">
+          <input id="fileLoader" class="visually-hidden" type="file" name="avatar">
+          Загрузить фото
+        </label>
+      </div>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Обо мне</span>
+      <label class="profile__label-wrap profile__textarea-field" aria-label="Напишите о себе">
+        <textarea name="comment" placeholder="Напишите о себе"></textarea>
+      </label>
+    </div>
+    <div class="profile__field">
+      <span class="profile__field-title">Опции пользователя</span>
+      <fieldset class="profile__label-wrap profile__checkbox-wrap">
+        <legend class="visually-hidden">Выбор опций</legend>
+        <label class="profile__label-checkbox">
+          <input class="visually-hidden" type="checkbox" name="hide-email">
+          <span>Скрывать e-mail адрес</span>
+        </label>
+        <label class="profile__label-checkbox">
+          <input class="visually-hidden" type="checkbox" name="hide-phone">
+          <span>Скрывать телефон</span>
+        </label>
+        <label class="profile__label-checkbox">
+          <input class="visually-hidden" type="checkbox" name="accept-mails">
+          <span>Принимать письма от других пользователей сайта</span>
+        </label>
+        <label class="profile__label-checkbox">
+          <input class="visually-hidden" type="checkbox" name="accept-notice">
+          <span>Получать почтовые извещения о личных сообщениях</span>
+        </label>
+      </fieldset>
+    </div>
+
+    <button class="btn profile__submit" type="submit">Сохранить</button>
+  </form>
+{% endblock %}
+
+  {% block parallax %}
+    {{ parent() }}
+    <img class="blob-parallax" id="square-3" src="img/svg/square-3.svg" alt="квадрат" width="625" height="625">
+  {% endblock %}

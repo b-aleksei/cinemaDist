@@ -1,0 +1,50 @@
+// https://www.htmlcsscolor.com/hex/334482
+
+$font-arimo: "Arimo", "Arial", sans-serif;
+$color-default-black:         #000;
+$color-default-white:         #FFF;
+$color-light-white:           #F5F5F5;
+$color-green:                 #05D3AE;
+$color-blue:                  #337FF0;
+$color-red:                   #FF3156;
+$color-default:               #03224F;
+$color-gradient:              linear-gradient(98.8deg, #00A4C1 15.3%, #2F35A7 68.3%);
+$banner-gradient:             linear-gradient(92.11deg, #212753 29.22%, rgba(75, 74, 74, 0) 98.28%);
+$btn-header-color:            #3E3D3D;
+$img-bg:                      #3E3D3D;
+$color-accent:                #0AE2BB;
+$color-main-control:          #929292;
+$color-inp-border:            #ACACAC;
+$color-inp-placeholder:       #8D8D8D;
+$footer-bg:                   #2C2C2C;
+$soc-icons-bg:                #CECECE;
+$film-btn-bg:                 #232323;
+$film-btn-bg-hover:           #7B7B7B;
+$film-btn-play-bg:            rgba(255, 255, 255, .5);
+$color-placeholder:           rgba(255, 255, 255, .5);
+$color-pointer-preview:       #535759;
+$favorite-bg:                 #ECF4FF;
+$focus-outline:               #80BDFF;
+//$drop-menu-bg:                rgba(0, 0, 0, 0.75);
+
+$drop-menu-bg:                #03224F;
+$lk-bg:                       #03224F;
+$lk-placeholder:              #989898;
+$drop-menu-hover:             #00A4C1;
+$slider-track:                #00A4C1;
+$color-hover:                 #00A4C1;
+
+$viewport-s:                  768px;
+$viewport-m:                  1024px;
+$viewport-burger:             1200px;
+$viewport-mw:                 1280px;
+$viewport-l:                  1920px;
+
+$delay-default: .3s;
+
+$fonts-size-auth:             Max(15px, Min(2.5vw, 30px));
+$fonts-size-25:               Max(10px, Min(2vw, 25px));
+$fonts-size-28:               Max(10px, Min(2.6vw, 28px));
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;

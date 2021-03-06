@@ -1,0 +1,12 @@
+<div class="trailer">
+  <h2>Трейлер</h2>
+  <div class="trailer__wrap">
+    <video controls preload="none">
+      <source src="video/extraction-trailer.mp4" type="video/mp4">
+    </video>
+    {{ macro.picture('', 'trailer', 1074, 653, 'Трейлер') }}
+    <button id="play-trailer" class="btn-play" type="button" aria-label="воспроизведение">
+      {{ macro.svg('play', 23, 33) }}
+    </button>
+  </div>
+</div>

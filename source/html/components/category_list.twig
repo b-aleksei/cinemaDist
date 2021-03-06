@@ -1,0 +1,16 @@
+{% set categories = ['Биографии', 'Боевики', 'Вестерн', 'Военный', 'Детективы', 'Для всей семьи', 'Документальные', 'Драмы', 'Исторические', 'Комедии', 'Криминал', 'Мелодрамы', 'Мультфильмы', 'Приключения', 'Спорт', 'Триллеры', 'Ужасы', 'Фантастика', 'Фэнтази'] %}
+<div class="category-btn-wrap">
+  <button class="category-btn category-type category-type-active" type="button">Категории</button>
+</div>
+<form class="category-form" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on">
+  <fieldset class="category-list">
+    <legend class="visually-hidden">Категории</legend>
+    {% for category in categories %}
+    <label class="category-list__item">
+      <input class="visually-hidden" type="checkbox" name="{{ category }}">
+      <span class="btn">{{ category }}</span>
+    </label>
+    {% endfor %}
+  </fieldset>
+  <button class="category-show btn btn--invert" type="submit">Показать</button>
+</form>

@@ -1,0 +1,95 @@
+<div class="template">
+{#  block preview #}
+  <li class="preview">
+    <div class="preview__inner">
+      <div class="preview__img-wrap">
+        <picture>
+          <!-- 1x-1920px 2x-3840px -->
+          <source type="image/webp" srcset="img/content/preview.webp 1x, img/content/preview@2x.webp 2x">
+          <img class="preview__img" src="img/content/preview.jpg" srcset="img/content/preview@2x.jpg 2x" width="1920" height="775" alt="Рейк: Операция по спасению" data-object-fit>
+        </picture>
+      </div>
+      <div class="preview__description">
+        <p class="preview__title">Довод</p>
+        <p class="preview__date" lang="en">Tenet, 2020</p>
+        <p class="preview__annotation">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A magnam porro qui quia, quibusdam reiciendis rem. Alias, non voluptates. A architecto aspernatur assumenda beatae eos fugit hic illum in ipsa iste, labore laborum nemo officia possimus praesentium quasi quos repellat reprehenderit, velit voluptatum? Aspernatur eveniet excepturi facere itaque optio vero. После теракта в киевском оперном театре агент ЦРУ объединяется с британской разведкой, чтобы противостоять русскому олигарху, который сколотил состояние на торговле оружием. Для этого агенты используют инверсию времени - технологию будущего, позволяющую времени идти вспять.</p>
+        <div class="preview__btn-wrap">
+          <button class="btn preview__btn" type="button">трейлер</button>
+          <button class="preview__share" type="button" aria-label="поделиться">
+            {{ macro.svg('share', 17,19) }}
+          </button>
+        </div>
+      </div>
+      <button class="btn btn--invert preview__close" aria-label="закрыть окно" type="button">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </div>
+  </li>
+
+{#  modal login #}
+  <div id="modal-login" class="modal modal--login">
+    <section class="modal__wrap">
+      <h2>Вход</h2>
+      <form class="modal-form modal-form--register" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" enctype="multipart/form-data">
+        <label class="modal-form__label-wrap">
+          <input type="text" name="email" placeholder="Email" data-validate="email" required>
+          <span data-error></span>
+        </label>
+
+        <button class="btn btn--invert modal-form__btn" type="submit">Войти</button>
+      </form>
+      <p class="modal__alternative">Если у вас нет учетной записи, <a href="register.html" data-modal-open="modal-register">зарегистрируйтесь</a></p>
+      <p>Войти с помощью</p>
+      <ul class="social-icons">
+        {% for icon in socialIconsModal %}
+          <li>
+            <a href="#" aria-label="{{ icon.label }}" data-icon="{{ icon.name }}">
+              <svg width="{{ icon.width }}" height="24">
+                <use href="#{{ icon.name }}"></use>
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <button class="btn btn--invert modal__close" aria-label="закрыть окно" type="button" data-modal-close="modal-login">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </section>
+  </div>
+
+{#  modal register #}
+  <div id="modal-register" class="modal">
+    <section class="modal__wrap">
+      <h2>Регистрация</h2>
+      <form class="modal-form modal-form--register" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" enctype="multipart/form-data">
+        <label class="modal-form__label-wrap">
+          <input type="text" name="name" placeholder="Имя" data-validate required>
+          <span data-error></span>
+        </label>
+        <label class="modal-form__label-wrap">
+          <input type="text" name="email" placeholder="Email" data-validate="email" required>
+          <span data-error></span>
+        </label>
+        <label class="modal-form__label-check">
+          <input class="visually-hidden" type="checkbox" name="" data-validate required>
+          <span>Я согласен на обработку персональных данных</span>
+        </label>
+        <button class="btn btn--invert modal-form__btn" type="submit">Зарегистрироваться</button>
+      </form>
+      <button class="btn btn--invert modal__close" aria-label="закрыть окно" type="button" data-modal-close="modal-register">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </section>
+  </div>
+
+{#  modal success#}
+  <div id="modal-success" class="modal modal--thanks">
+    <div class="modal__wrap">
+      <div class="modal-form modal-form--thanks">
+        <h2>спасибо за оплату!</h2>
+        <button class="btn btn--invert modal-form__btn" type="button" data-modal-close="modal-success">закрыть</button>
+      </div>
+    </div>
+  </div>
+  <span id="spinner" class="hidden"></span>
+</div>

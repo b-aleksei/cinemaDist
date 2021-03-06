@@ -1,0 +1,25 @@
+{% set rating %}
+  {% include 'rating.twig' with {
+    mod: 'film',
+    movie: film,
+    width: 17,
+    height: 16
+  } %}
+{% endset %}
+
+
+<div class="film">
+  <div class="film__cover-wrap">
+  <a href="details.html">
+    {{ macro.lazy('', film, 248, 313, 'Фильм') }}
+  </a>
+    <button class="btn-play film__play" type="button" aria-label="воспроизведение">
+      {{ macro.svg('play', 23, 33) }}
+    </button>
+    <button class="btn btn--invert film__watch" type="button" data-details="{{ film }}">подробнее</button>
+  </div>
+  <div class="film__action">
+    <p class="film__description">Название фильма</p>
+    {{ rating }}
+  </div>
+</div>

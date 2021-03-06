@@ -1,0 +1,76 @@
+<section class="details wrapper">
+  <div class="details__img-wrap">
+    <picture>
+      <source media="(max-width: 1200px)" type="image/webp" srcset="img/content/slider/extraction.webp 1x, img/content/slider/extraction@2x.webp 2x">
+      <source type="image/webp" srcset="img/content/extraction-trailer.webp 1x, img/content/extraction-trailer@2x.webp 2x">
+      <img class=" object-fit" src="img/content/extraction-trailer.jpg" srcset="img/content/extraction-trailer@2x.jpg 2x" alt="Тайлер Рейк: Операция по спасению" data-object-fit="" width="1200" height="712">
+    </picture>
+  </div>
+  <div class="details__content">
+    <div class="details__header">
+      <h2>Тайлер Рейк: Операция по спасению</h2>
+      <div class="details__interactive">
+        {% include 'rating.twig' with {
+          mod: 'details',
+          movie: 'trailer',
+          width: 17,
+          height: 16
+        } %}
+        <button class="details__share" type="button" aria-label="поделиться">
+          {{ macro.svg('share', 17,19) }}
+        </button>
+        <label class="details__favorites">
+          <input type="checkbox" name="favorites">
+          {{ macro.svg('heart', 36, 33) }}
+          <span>В избранное</span>
+        </label>
+      </div>
+    </div>
+    <p class="details__descriptions">
+      Группировка наёмников берётся освободить из заложников сына сидящего в тюрьме индийского наркобарона. Подростка похитили конкуренты и держат его в столице Бангладеш Дакке - городе, состоящем из трущоб и практически полностью окружённом реками. Ответственное задание поручатся бывшему военному Тайлеру Рейку. Он легко расправляется с вооружённой охраной и быстро освобождает пленника, но доставить парня в безопасное место и выбраться из города, где на тебя объявлена охота, оказывается не так-то просто.
+    </p>
+    <div class="details__table">
+      <table class="details__rating">
+        <tr>
+          <th>КиноПоиск</th>
+          <th>IMDB</th>
+        </tr>
+        <tr>
+          <td><span>6,8</span>из 10</td>
+          <td><span>6,7</span>из 10</td>
+        </tr>
+      </table>
+      <dl class="details__structure">
+        <div>
+          <dt>Жанр</dt>
+          <dd>боевик</dd>
+        </div>
+        <div>
+          <dt>Режиссёр</dt>
+          <dd>Сэм Харгрейв</dd>
+        </div>
+        <dt>В ролях:</dt>
+        <dd>
+          <ul class="details__actor-list">
+            <li>Крис Хемсворт</li>
+            <li>Рудракш Джайсвал</li>
+            <li>Рандип Худа</li>
+            <li>Гольшифте Фарахани </li>
+            <li>Панкадж Трипати</li>
+            <li>Дэвид Харбор</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <div class="details__footer">
+        <span class="details__price">Ценa:</span>
+        <span class="details__price-value">99 рублей</span>
+        <div class="details__wrap-buy">
+          <button class="btn details__buy" type="button">Купить</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

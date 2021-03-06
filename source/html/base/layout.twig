@@ -1,0 +1,101 @@
+{% import 'macros.twig' as macro %}
+{% set socialIcons = [
+  {
+    name: 'fb',
+    label: 'мы на фейсбуке',
+    width: 12
+  },
+  {
+    name: 'yt',
+    label: 'мы в ютубе',
+    width: 30
+  },
+  {
+    name: 'twit',
+    label: 'мы в твиттере',
+    width: 26
+  },
+  {
+    name: 'vk',
+    label: 'мы во в контакте',
+    width: 33
+  },
+  {
+    name: 'inst',
+    label: 'мы в инстаграмм',
+    width: 24
+  }
+] %}
+{% set socialIconsModal = [
+  {
+    name: 'fb',
+    label: 'войти с помощью фейсбук',
+    width: 12
+  },
+  {
+    name: 'tg',
+    label: 'войти с помощью телеграмм',
+    width: 25
+  },
+  {
+    name: 'google',
+    label: 'войти с помощью гугл',
+    width: 23
+  },
+  {
+    name: 'vk',
+    label: 'войти с помощью в контакте',
+    width: 33
+  },
+  {
+    name: 'inst',
+    label: 'войти с помощью инстаграмм',
+    width: 24
+  }
+] %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <link rel="preload" href="fonts/arimo-bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/arimo-regular.woff2" as="font" crossorigin="anonymous">
+  {% block head %}
+    <link rel="stylesheet" href="css/style.min.css">
+  {% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+  {% block sprite %}
+    <div style="display: none;">
+      {% include 'sprite_svg.twig' %}
+    </div>
+  {% endblock %}
+
+<div class="inner-body">
+  {% block header %}
+    {% include 'header.twig' %}
+  {% endblock %}
+
+  <main>
+  {% block main %}{% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include 'footer.twig' %}
+  {% endblock %}
+
+  {% block parallax %}
+    {% include 'paralax_img.twig' %}
+  {% endblock %}
+</div>
+
+{% include '../components/template.twig' %}
+
+{% block scripts %}
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+{% endblock %}
+</body>
+</html>

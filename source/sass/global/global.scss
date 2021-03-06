@@ -1,0 +1,170 @@
+// style reset
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+fieldset,
+ul,
+dd,
+dl {
+  margin: 0;
+}
+
+ul,
+legend,
+fieldset {
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  display: flex;
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1.36;
+  font-family: $font-arimo;
+  color: $color-default;
+}
+
+.inner-body {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  contain: content;
+  z-index: 1;
+}
+// для прибития футера к низу
+main {
+  flex-grow: 1;
+  z-index: -2;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img,
+svg,
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
+
+// chrome autofill background removal
+// Если на проекте у инпутов используются разные цвета фонов\текста -
+// удалите это из глобала и используйте локально с нужными цветами
+// rgba не подойдет, сконвертируйте цвет в hex без прозрачности
+// если в стилях уже используется box-shadow есть другое решение -
+// задать к списку транзишенов `background-color 10000000s ease-out`
+input:-webkit-autofill {
+  //box-shadow: inset 0 0 0 1000px white;
+
+  //-webkit-text-fill-color: black;
+}
+
+// firefox placeholder \ invalid fix + ios bdrs
+input,
+textarea {
+  display: block;
+  font-family: inherit;
+  border-radius: 0;
+  font-size: 16px;
+  margin: 0;
+  color: inherit;
+  -webkit-appearance: none;
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+select {
+  border-radius: 0;
+}
+
+// ie11 X removal
+input {
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+  }
+}
+
+// chrome search X removal
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+// input[number] arrows removal
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+// ios button \ inputs reset
+select,
+textarea,
+input:matches([type="email"],
+  [type="number"],
+  [type="password"],
+  [type="search"],
+  [type="tel"],
+  [type="text"],
+  [type="url"]) {
+  appearance: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  font-family: inherit;
+  appearance: none;
+}

@@ -1,0 +1,11 @@
+{% set slides = ['screen-1', 'screen-2', 'screen-3', 'screen-4', 'screen-5'] %}
+
+<div class="details-slider-wrap wrapper">
+  <div class="details-slider">
+    {% for slide in slides %}
+    <div class="details-slider__item">
+      {{ macro.picture('', slide, 390, 294, 'кадр фильма') }}
+    </div>
+    {% endfor %}
+  </div>
+</div>

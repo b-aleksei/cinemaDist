@@ -1,0 +1,45 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'modal' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+
+  <div class="modal">
+    <section class="modal__wrap">
+      <h2>Форма оплаты</h2>
+      <div class="modal-price">
+        <div>
+          <span>Сумма</span>
+          <b>99 руб.</b>
+        </div>
+      </div>
+      <form class="modal-form modal-form--pay" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on">
+        <label class="modal-form__label-wrap">
+          <input type="text" name="card-number" placeholder="Номер карты">
+        </label>
+        <label class="modal-form__label-wrap">
+          <input type="text" name="name" placeholder="Фио">
+        </label>
+        <div class="modal-form__pay-card">
+          <label class="modal-form__label-wrap">
+            <input type="text" name="expire" placeholder="XX / XX">
+          </label>
+          <label class="modal-form__label-wrap">
+            <input type="text" name="code" placeholder="Код">
+          </label>
+        </div>
+        <button class="btn btn--invert modal-form__btn" type="submit">Оплатить</button>
+      </form>
+      <button class="btn btn--invert modal__close" aria-label="закрыть окно" type="button">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </section>
+  </div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

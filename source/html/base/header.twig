@@ -1,0 +1,55 @@
+{% set dropMenu = ['Боевики', 'Фантастика', 'Семейные', 'Исторические', 'Мультфильмы', 'Сериалы'] %}
+
+<header class="header">
+  <div class="header__wrap wrapper">
+    {{ macro.logo() }}
+
+    <nav class="header__nav nav">
+      <button class="nav__toggle circles" type="button" aria-label="показать(скрыть) меню"
+              aria-controls="main-menu" aria-expanded="false">
+        <span class="circles"></span>
+      </button>
+      <ul id="main-menu" class="nav__list">
+        <li class="nav__item">
+          <a class="nav__link" href="new.html">Новинки</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link nav__link--cat" href="category.html">Категории</a>
+          <div class="drop-menu-wrap">
+            <ul class="drop-menu">
+              {% for category in dropMenu %}
+                <li>
+                  <a class="drop-menu__link" href="category.html">{{ category }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="popular.html">Популярные</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="favorites.html">Избранные</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__auth">
+      {% block login %}
+        <div class="btn search search--header">
+          <button type="button" aria-label="поиск фильмов">
+            {{ macro.svg('search', 20, 20) }}
+          </button>
+          <input type="search" placeholder="Поиск" aria-label="Поиск">
+        </div>
+
+
+        <a href="#" class="btn header__login" data-modal-open="modal-login">
+          <span>Вход</span>
+          {{ macro.svg('auth', 12, 12) }}
+        </a>
+      {% endblock %}
+    </div>
+  </div>
+</header>
+<hr>

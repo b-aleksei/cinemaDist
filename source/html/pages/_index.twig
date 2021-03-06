@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Разводящая страница</title>
+
+  <style>
+    body {
+      background-color: tan;
+    }
+
+    .container {
+      padding-top: 50px;
+      padding-left: 50px;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 28px;
+    }
+
+    li {
+      font-size: 25px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+{% set links = [
+  {
+    name: 'Главная',
+    href: 'main.html'
+  },
+  {
+    name: 'Подробнее',
+    href: 'details.html'
+  },
+  {
+    name: 'Категории',
+    href: 'category.html'
+  },
+  {
+    name: 'Избранное',
+    href: 'favorites.html'
+  },
+  {
+    name: 'Популярные',
+    href: 'popular.html'
+  },
+  {
+    name: 'Личный кабинет',
+    href: 'auth.html'
+  },
+  {
+    name: 'Profile-new',
+    href: 'profile_new.html'
+  },
+  {
+    name: 'modal-register',
+    href: 'register.html'
+  },
+  {
+    name: 'modal-login',
+    href: 'login.html'
+  },
+  {
+    name: 'modal-pay',
+    href: 'modal-pay.html'
+  },
+  {
+    name: 'modal-thanks',
+    href: 'modal-thanks.html'
+  },
+  {
+    name: 'modal-rating',
+    href: 'modal-rating.html'
+  },
+] %}
+
+
+<main>
+  <div class="container">
+    <h1>Список страниц и компонентов проекта</h1>
+    <ol>
+      {% for link in links %}
+      <li>
+        <a href="{{ link.href }}">{{ link.name }} — {{ link.href }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</main>
+
+</body>
+</html>
+

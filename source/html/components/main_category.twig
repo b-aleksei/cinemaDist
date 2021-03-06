@@ -1,0 +1,25 @@
+{% set moviesTop = ['movie-1', 'movie-2', 'movie-3', 'movie-4','movie-5', 'movie-6', 'movie-7', 'movie-8', 'movie-9', 'movie-10', 'movie-11', 'movie-12'] %}
+{#{% set moviesMiddle = ['movie-5', 'movie-6', 'movie-7', 'movie-8', 'movie-9', 'movie-10', 'movie-11', 'movie-12'] %}#}
+
+<section class="main-category wrapper">
+  <h2 class="visually-hidden">Категории фильмов</h2>
+  {% block nav %}
+    <div class="main-category__nav">
+      <button class="category-type category-type-active" type="button">Новинки</button>
+      <button class="category-type" type="button">Популярные</button>
+      <button class="category-type" type="button">Рекомендуем</button>
+      {{ macro.search() }}
+    </div>
+  {% endblock %}
+
+  <ul class="film-list">
+    {% for movie in moviesTop %}
+      <li id="{{ movie }}" class="film-item">
+        {% include 'film.twig' with {film: movie} %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% include 'pagination.twig' %}
+</section>
+

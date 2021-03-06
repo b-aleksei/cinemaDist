@@ -1,0 +1,122 @@
+.film {
+  //max-width: 383px;
+  //margin-bottom: 30px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:focus-within .film__cover-wrap {
+    &::before,
+    button {
+      opacity: 1;
+    }
+  }
+
+  &:hover .film__cover-wrap::before {
+    opacity: 1;
+  }
+
+  &:hover .film__cover-wrap button {
+    opacity: 1;
+  }
+
+  @media (max-width: $viewport-s) {
+    border-radius: 10px;
+  }
+}
+
+.film__cover-wrap {
+  position: relative;
+  max-height: 480px;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: opacity $delay-default;
+    pointer-events: none;
+  }
+
+  a {
+    display: block;
+    pointer-events: none;
+
+    @media (max-width: $viewport-burger) {
+      pointer-events: auto;
+    }
+  }
+}
+
+.film__description {
+  margin-top: 14px;
+  margin-bottom: 35px;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  transition: font-weight $delay-default;
+
+  @media (max-width: $viewport-burger) {
+    font-size: $fonts-size-25;
+    margin-bottom: 8%;
+  }
+}
+
+.film__share {
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $color-default;
+    transition: fill $delay-default;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: $color-blue;
+  }
+}
+
+.film__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: $viewport-s) {
+    display: none;
+  }
+}
+
+.film__watch {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 8px 43px 9px;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: 400;
+  color: $color-default-white;
+  opacity: 0;
+  transition: opacity $delay-default;
+
+  @media (max-width: $viewport-burger) {
+    display: none;
+  }
+}
+
+.film__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //transition: opacity $delay-default;
+  opacity: 0;
+
+  @media (max-width: $viewport-burger) {
+    display: none;
+  }
+}

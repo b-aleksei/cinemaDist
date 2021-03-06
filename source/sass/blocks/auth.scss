@@ -1,0 +1,214 @@
+.auth {
+  .auth__info {
+    margin-bottom: 58px;
+  }
+
+  section {
+    margin-bottom: 58px;
+  }
+}
+
+.auth__info {
+  max-width: 937px;
+  margin: 100px auto 0;
+  padding: 0 69px 50px;
+  align-items: center;
+  background: $lk-bg url("../img/bg/bg-square.png") right top / 199px 224px no-repeat;
+  color: $color-default-white;
+
+  @media (max-width: $viewport-burger) {
+    position: relative;
+    border-radius: 20px;
+  }
+
+  @media (max-width: $viewport-s) {
+    padding: 0 15px 30px;
+  }
+}
+
+.auth__header {
+  display: flex;
+  width: 100%;
+
+  @media (max-width: $viewport-burger) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.auth__header .avatar-wrap {
+  width: 195px;
+  height: 195px;
+  margin-top: -50px;
+  margin-right: 35px;
+
+  @media (max-width: $viewport-burger) {
+    margin-right: 0;
+    padding: 5px;
+    width: 111px;
+    height: 111px;
+  }
+}
+
+.auth__thumb {
+  position: absolute;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: $color-gradient;
+
+  @media (max-width: $viewport-burger) {
+    width: 37px;
+    height: 37px;
+    padding: 8px;
+  }
+}
+
+.auth__name {
+  display: flex;
+  flex-direction: column;
+
+  b {
+    margin-top: 18px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 50px;
+
+    @media (max-width: $viewport-burger) {
+      font-size: Max(20px, Min(3.4vw, 40px));
+    }
+  }
+
+  p {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 30px;
+
+    @media (max-width: $viewport-burger) {
+      font-size: $fonts-size-auth;
+    }
+  }
+}
+
+.auth__edit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 45px;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 29px;
+  fill: $color-green;
+  transition: color $delay-default;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $color-green;
+  }
+
+  svg {
+    width: 33px;
+    height: 33px;
+    margin-right: 18px;
+  }
+
+  @media (max-width: $viewport-burger) {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    transform: translate(-50%, 50%);
+    background: $color-gradient;
+    fill: $color-default-white;
+    border-radius: 50%;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 0;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.auth__logout {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 29px;
+  transition: color $delay-default;
+
+  &:hover,
+  &:focus {
+    color: $color-green;
+  }
+
+  @media (max-width: $viewport-burger) {
+    display: none;
+  }
+}
+
+.auth__main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.auth__fieldset {
+  width: 100%;
+  margin-top: 40px;
+  border: 0;
+
+  @media (max-width: $viewport-burger) {
+    margin-top: 10px;
+  }
+}
+
+.auth__field {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 30px;
+
+  &:not(:last-child) {
+    margin-bottom: 41px;
+  }
+
+  dt {
+    width: 50%;
+  }
+
+  dd {
+    width: 50%;
+    font-size: inherit;
+    color: $lk-placeholder;
+
+    @media (max-width: $viewport-burger) {
+      text-align: right;
+    }
+  }
+
+  @media (max-width: $viewport-burger) {
+    font-size: $fonts-size-auth;
+  }
+
+  @media (max-width: $viewport-s) {
+    max-width: 450px;
+    margin: auto;
+  }
+}

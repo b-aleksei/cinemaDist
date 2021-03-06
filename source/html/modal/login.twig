@@ -1,0 +1,43 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'modal' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+
+  <div class="modal modal--login">
+    <section class="modal__wrap">
+      <h2>Вход</h2>
+      <form class="modal-form modal-form--register" method="post" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on">
+        <label class="modal-form__label-wrap">
+          <input type="text" name="email" placeholder="Email" data-validate="email" required>
+          <span data-error></span>
+        </label>
+
+        <button class="btn btn--invert modal-form__btn" type="submit">Войти</button>
+      </form>
+      <p class="modal__alternative">Если у вас нет учетной записи, <a href="register.html">зарегистрируйтесь</a></p>
+      <p>Войти с помощью</p>
+      <ul class="social-icons">
+        {% for icon in socialIconsModal %}
+          <li>
+            <a href="#" aria-label="{{ icon.label }}" data-icon="{{ icon.name }}">
+              <svg width="{{ icon.width }}" height="24">
+                <use href="#{{ icon.name }}"></use>
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <button class="btn btn--invert modal__close" aria-label="закрыть окно" type="button">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </section>
+  </div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'Подробнее cinema' %}
+
+{% block main %}
+  <h1 class="visually-hidden">Информация о фильме</h1>
+  {% include '../components/banner.twig' with {mod: 'banner--details'} %}
+
+  <div class="wrapper wrapper--details">
+    {% include '../components/search-component.twig' %}
+  </div>
+
+  {% include '../components/details_film.twig' %}
+
+  {% include '../components/trailer.twig' %}
+
+  {% include '../components/details_slider.twig' %}
+
+{% endblock %}
+
+  {% block parallax %}
+    {{ parent() }}
+    <img class="blob-parallax" id="square-3" src="img/svg/square-3.svg" alt="квадрат" width="625" height="625">
+    <img class="blob-parallax" id="square-4" src="img/svg/square-4.svg" alt="квадрат" width="470" height="470">
+  {% endblock %}
+
+{% block scripts %}
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  {{ parent() }}
+{% endblock %}

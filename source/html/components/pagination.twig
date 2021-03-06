@@ -1,0 +1,23 @@
+<div class="pagination">
+  <div>
+    <button class="pagination__btn pagination__back" type="button" aria-label="слайд назад" disabled>
+      {{ macro.svg('pag-arrow', 20, 40) }}
+    </button>
+    <ul class="pagination__list">
+      {% for i in 1..10 %}
+        {% if loop.revindex0 == 1 %}
+          <li>
+            <a class="pagination__link">...</a>
+          </li>
+          {% else %}
+            <li>
+              <a class="pagination__link {{ i == 1 ? 'active' : '' }}" href="#" aria-label="перейти на страницу">{{ i }}</a>
+            </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <button class="pagination__btn pagination__ahead" type="button" aria-label="слайд вперед">
+      {{ macro.svg('pag-arrow', 20, 40) }}
+    </button>
+  </div>
+</div>

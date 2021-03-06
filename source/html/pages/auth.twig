@@ -1,0 +1,99 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'Личный кабинет cinema' %}
+{% set pages = [
+  {
+    name: 'Главная',
+    href: 'index.html'
+  },
+  {
+    name: 'Личные данные',
+    href: 'auth.html'
+  }
+] %}
+
+{% set fields = ['Соц. сети:', 'Пол:', 'Дата рождения:', 'Email:', 'Обо мне:'] %}
+{% set moviesTop = ['movie-1', 'movie-2', 'movie-3', 'movie-4'] %}
+{% set moviesBottom = ['movie-5', 'movie-6', 'movie-7', 'movie-8'] %}
+
+{% block header %}
+  {% embed '../base/header.twig' %}
+    {% block login %}
+      <div class="header__profile">
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img class="object-fit" src="img/svg/ava.svg" width="149" height="149" alt="аватар">
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn header__login">
+        <span>выход</span>
+        {{ macro.svg('auth', 12, 12) }}
+      </a>
+    {% endblock %}
+  {% endembed %}
+{% endblock %}
+
+{% block main %}
+  <section class="auth wrapper">
+    <h1 class="visually-hidden">Личные данные</h1>
+    {% include '../components/search-component.twig' with pages %}
+    <div class="auth__info">
+      <div class="auth__header">
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img class="object-fit" src="img/svg/ava.svg" width="149" height="149" alt="аватар">
+          </div>
+          <div class="auth__thumb">
+            {{ macro.svg('camera', 34, 30) }}
+          </div>
+        </div>
+        <div class="auth__name">
+          <b>Nickname</b>
+          <p>Иван Иванов</p>
+        </div>
+      </div>
+      <div class="auth__main">
+        <a href="profile.html" class="auth__edit" aria-label="Редактировать профиль">
+          {{ macro.svg('edit', 33, 33) }}
+          <span>Редактировать</span>
+        </a>
+        <a href="index.html" class="auth__logout" type="button">Выйти</a>
+        <dl class="auth__fieldset">
+          {% for field in fields %}
+          <div class="auth__field">
+            <dt>{{ field }}</dt>
+            <dd>Не заполнено</dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="category-type category-type-active">Избранное</h2>
+      <ul class="film-list">
+        {% for movie in moviesTop %}
+          <li id="{{ movie }}" class="film-item">
+            {% include '../components/film.twig' with {film: movie} %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="category-type category-type-active">Мои фильмы</h2>
+      <ul class="film-list">
+        {% for movie in moviesBottom %}
+          <li id="{{ movie }}" class="film-item">
+            {% include '../components/film.twig' with {film: movie} %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </section>
+{% endblock %}
+
+  {% block parallax %}
+    {{ parent() }}
+    <img class="blob-parallax" id="square-3" src="img/svg/square-3.svg" alt="квадрат" width="625" height="625">
+  {% endblock %}

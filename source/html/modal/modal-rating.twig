@@ -1,0 +1,31 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'modal' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+
+  <div class="modal modal--rating">
+    <section class="modal__wrap">
+      <form class="modal-form">
+        <h2>Поставьте вашу оценку</h2>
+        {% include '../components/rating.twig' with {
+          mod: 'form',
+          movie: 'film',
+          width: 44,
+          height: 43,
+        } %}
+        <button class="btn btn--invert modal-form__btn" type="submit">Отправить</button>
+      </form>
+      <button class="btn btn--invert modal__close" aria-label="закрыть окно" type="button">
+        {{ macro.svg('close', 10, 10) }}
+      </button>
+    </section>
+  </div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

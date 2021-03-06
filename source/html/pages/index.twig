@@ -1,0 +1,17 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'Главная cinema' %}
+{% set bodyClass = 'body-main' %}
+
+
+
+{% block main %}
+  <h1 class="visually-hidden">Онлайн кинотеатр</h1>
+  {% include '../components/banner.twig' %}
+  {% include '../components/main_category.twig' %}
+  {% include '../components/favorite.twig' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  {{ parent() }}
+{% endblock %}

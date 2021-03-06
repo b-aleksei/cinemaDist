@@ -1,0 +1,21 @@
+{% set popularCategories = ['Биографии', 'Боевики', 'Вестерн', 'Военный', 'Детективы', 'Для&nbsp;всей&nbsp;семьи', 'Документальные', 'Драмы', 'Исторические', 'Комедии', 'Криминал', 'Мелодрамы', 'Мультфильмы', 'Приключения', 'Спорт', 'Триллеры', 'Ужасы', 'Фантастика', 'Фэнтази'] %}
+
+<section class="favorite">
+  <div class="wrapper">
+    <h2 class="category-type-active">Популярные категории</h2>
+    <ul class="favorite__list">
+      {% for category in popularCategories %}
+        <li class="favorite__item carousel-cell">
+          <a href="#">
+          {{ category }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+  <img class="blob-parallax" id="square-3" src="img/svg/square-3.svg" alt="квадрат" width="625" height="625">
+  <img class="blob-parallax" id="square-4" src="img/svg/square-4.svg" alt="квадрат" width="470" height="470">
+
+</section>

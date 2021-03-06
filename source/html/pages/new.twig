@@ -1,0 +1,33 @@
+{% extends "../base/layout.twig" %}
+{% set title = 'Новинки cinema' %}
+{% set pages = [
+  {
+    name: 'Главная',
+    href: 'index.html'
+  },
+  {
+    name: 'Новинки',
+    href: 'new.html'
+  }
+] %}
+
+
+{% block main %}
+  <h1 class="visually-hidden">Категории фильмов</h1>
+
+  {% embed '../components/main_category.twig' %}
+    {% block nav %}
+      {% embed '../components/search-component.twig' with pages %}
+        {% block search %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+
+{% endblock %}
+
+  {% block parallax %}
+    {{ parent() }}
+    <img class="blob-parallax" id="square-3" src="img/svg/square-3.svg" alt="квадрат" width="625" height="625">
+    <img class="blob-parallax" id="square-4" src="img/svg/square-4.svg" alt="квадрат" width="470" height="470">
+  {% endblock %}

@@ -1,0 +1,138 @@
+.modal-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &--register {
+    margin-top: 41px;
+
+    .modal-form__btn {
+      margin-bottom: 73px;
+    }
+  }
+
+  &--login {
+    .modal-form__btn {
+      margin-bottom: 80px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  &--pay {
+    margin-top: 17px;
+
+    .modal-form__btn {
+      margin-top: 16px;
+    }
+  }
+
+  &--thanks {
+    .modal-form__btn {
+      margin-top: 82px;
+    }
+  }
+}
+
+.modal-form__btn {
+  padding: 15px 44px;
+  border-radius: 30px;
+  font-size: 25px;
+
+  @media (max-width: $viewport-s) {
+    font-size: 15px;
+  }
+}
+
+.modal-form__label-wrap {
+  width: 100%;
+  height: 53px;
+  margin-bottom: 56px;
+
+  @media (max-width: $viewport-s) {
+    margin-bottom: 25px;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: none;
+    border-bottom: 1px solid $color-green;
+    transition: border-bottom-color $delay-default;
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
+  }
+
+  [data-error] {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $color-red;
+    opacity: 0;
+    transition: opacity $delay-default;
+    pointer-events: none;
+  }
+}
+
+.validate.modal-form__label-check {
+  input:invalid {
+    border-bottom-color: $color-red;
+
+    & + span::before {
+      background-color: $color-red;
+    }
+  }
+}
+
+.modal-form__label-check {
+  margin-bottom: 65px;
+
+  span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+
+    &::before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      margin-right: 21px;
+      flex-shrink: 0;
+      border: 1px solid transparent;
+      background: $color-green url("../img/svg/tick-white.svg") center/0 0 no-repeat;
+      transition: background-size $delay-default, background-color $delay-default;
+    }
+  }
+
+  input:checked + span::before {
+    background-size: 13px 11px;
+  }
+}
+
+.modal-form__pay-card {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  label {
+    max-width: 283px;
+
+    &:first-child {
+      margin-right: 30px;
+    }
+  }
+}

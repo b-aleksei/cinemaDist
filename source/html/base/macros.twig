@@ -1,0 +1,39 @@
+{% macro svg(id, width, height) %}
+  <svg width="{{ width }}" height="{{ height }}">
+    <use href="#{{ id }}"></use>
+  </svg>
+{% endmacro %}
+
+{% macro logo() %}
+  <div class="logo">
+    <a href="index.html" aria-label="логотип">
+      {% import _self as macro %}
+      {{ macro.svg('logo', 176, 47) }}
+    </a>
+  </div>
+{% endmacro %}
+
+
+{#{% macro banner(class, fileName, width, height, alt = 'фильм') %}
+  <picture>
+    <!-- 1x-{{ width }}px 2x-{{ width * 2 }}px -->
+    <source type="image/webp" srcset="img/content/slider/{{ fileName }}.webp 1x, img/content/slider/{{ fileName }}@2x.webp 2x">
+    <img class="{{ class }} object-fit" src="img/content/slider/{{ fileName }}.jpg" srcset="img/content/slider/{{ fileName }}@2x.jpg 2x" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" data-object-fit>
+  </picture>
+{% endmacro %}#}
+
+{% macro picture(class, fileName, width, height, alt = 'фильм', loading = 'lazy', path = '') %}
+  <picture>
+    <!-- 1x-{{ width }}px 2x-{{ width * 2 }}px -->
+    <source type="image/webp" srcset="img/content/{{ path }}{{ fileName }}.webp 1x, img/content/{{ path }}{{ fileName }}@2x.webp 2x">
+    <img class="{{ class }} object-fit" src="img/content/{{ path }}{{ fileName }}.jpg" srcset="img/content/{{ path }}{{ fileName }}@2x.jpg 2x" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" loading="{{ loading }}" data-object-fit>
+  </picture>
+{% endmacro %}
+
+{% macro lazy(class, fileName, width, height, alt = 'фильм') %}
+  <picture class="lazy-img inv">
+    <!-- 1x-{{ width }}px 2x-{{ width * 2 }}px -->
+    <source type="image/webp" data-srcset="img/content/{{ fileName }}.webp 1x, img/content/{{ fileName }}@2x.webp 2x">
+    <img class="{{ class }} object-fit" src="img/content/{{ fileName }}.jpg" srcset="img/content/{{ fileName }}.jpg 2x" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" data-object-fit>
+  </picture>
+{% endmacro %}

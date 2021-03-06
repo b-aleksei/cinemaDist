@@ -1,0 +1,41 @@
+.footer {
+  background-color: $color-default;
+  min-height: 323px;
+  display: flex;
+  border-top: 8px solid transparent;
+  border-image: $color-gradient;
+  border-image-slice: 1;
+  color: $color-default-white;
+
+  @media (max-width: $viewport-burger) {
+    min-height: initial;
+    border: none;
+    background: none;
+  }
+}
+
+.footer__wrap {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $viewport-burger) {
+    flex-direction: column;
+    padding: 0;
+    color: $color-default;
+
+    .logo {
+      margin-bottom: 28px;
+    }
+  }
+}
+
+.footer__social-icons {
+  padding-right: 130px;
+  padding-left: 30px;
+
+  @media (max-width: $viewport-burger) {
+    padding: 20px 0;
+    width: 100%;
+    background-color: $color-default;
+  }
+}
